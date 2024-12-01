@@ -2,7 +2,12 @@
 
 The application has a react frontend and a Spring Boot Rest API, packaged as a single module Maven application.
 
-You can build the application running the Dockerfile in local and port forwarding it.
+You can build the application running the Dockerfile in local and port forwarding it to 8080.
+
+To see the frontend, navigate to http://localhost:8080. You are immediately redirected to a login form. Log in as `greg/turnquist`
+
+![image](https://github.com/user-attachments/assets/bf016e83-35f7-4b86-bec0-42656c1074c5)
+
 
 ![image](https://github.com/user-attachments/assets/d017c295-8715-478a-9c2e-8234819a3e09)
 
