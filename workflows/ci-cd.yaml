@@ -18,12 +18,11 @@ on:
 
 env:
   PROJECT_ID: '<your-gcp-project-id>'   # Replace with your GCP project ID
-  REGION: 'us-central1'                 # Set your preferred GCP region
+  REGION: 'us-central1'                 
   IMAGE_NAME: 'react-and-spring-data-rest'
   SERVICE_NAME: 'react-spring-app'
 
 jobs:
-  # Step 1: Build and Test the Application Code Base
   build-and-test:
     runs-on: ubuntu-latest
     steps:
@@ -47,7 +46,6 @@ jobs:
     - name: Build and Test with Maven
       run: ./mvnw clean verify
 
-  # Step 2: Build and Push Docker Image to Google Container Registry
   build-and-push:
     runs-on: ubuntu-latest
     needs: build-and-test
@@ -73,7 +71,6 @@ jobs:
         docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
         echo "Docker image pushed to GCR"
 
-  # Step 3: Deploy to Google Cloud Run
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-push
