@@ -1,16 +1,16 @@
-# Use an OpenJDK image to support both frontend and backend
+
 FROM openjdk:16-jdk-slim
 
-# Set the working directory
+
 WORKDIR /app
 
-# Install Node.js and npm (for frontend)
+# Install Node.js and npm 
 RUN apt-get update && \
     apt-get install -y curl && \
     curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs
 
-# Install the frontend dependencies (npm install)
+
 COPY package.json package-lock.json ./
 RUN npm install
 
